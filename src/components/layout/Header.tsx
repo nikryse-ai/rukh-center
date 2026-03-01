@@ -1,0 +1,198 @@
+'use client'
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+
+const navLinks = [
+  { label: 'Программы', href: '/#programs' },
+  { label: 'События', href: '#' },
+  { label: 'Отзывы', href: '/#reviews' },
+  { label: 'Доп. услуги', href: '#' },
+]
+
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .hdr {
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          background: #fff;
+          height: 70px;
+          display: flex;
+          align-items: center;
+          transition: box-shadow 0.3s;
+          border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .hdr.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.1); }
+        .hdr-inner {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+        }
+        .hdr-logo {
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          flex-shrink: 0;
+        }
+        .hdr-logo img {
+          height: 46px;
+          width: auto;
+          display: block;
+        }
+        .hdr-nav {
+          display: flex;
+          align-items: center;
+          gap: 28px;
+        }
+        .hdr-link {
+          color: var(--green-dark);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 0.92rem;
+          position: relative;
+          padding-bottom: 3px;
+          transition: color 0.2s;
+        }
+        .hdr-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0; left: 0;
+          width: 100%; height: 2px;
+          background: var(--gold);
+          transform: scaleX(0);
+          transition: transform 0.25s;
+          transform-origin: left;
+        }
+        .hdr-link:hover { color: var(--gold); }
+        .hdr-link:hover::after { transform: scaleX(1); }
+        .hdr-cta {
+          background: var(--gold);
+          color: #fff;
+          border: none;
+          border-radius: 20px;
+          padding: 10px 24px;
+          font-size: 0.9rem;
+          font-weight: 700;
+          cursor: pointer;
+          font-family: var(--font-main);
+          text-decoration: none;
+          transition: background 0.2s, transform 0.2s;
+          box-shadow: 0 4px 14px rgba(184,147,90,0.35);
+        }
+        .hdr-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+        /* Burger */
+        .burger {
+          display: none;
+          flex-direction: column;
+          background: none;
+          border: none;
+          cursor: pointer;
+          gap: 5px;
+          padding: 4px;
+        }
+        .burger-l {
+          display: block;
+          width: 24px; height: 2px;
+          background: var(--green-dark);
+          transition: transform 0.3s, opacity 0.3s;
+          border-radius: 2px;
+        }
+        .burger.open .burger-l:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .burger.open .burger-l:nth-child(2) { opacity: 0; }
+        .burger.open .burger-l:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        /* Mobile menu */
+        .mob-menu {
+          background: var(--green-dark);
+          border-top: 1px solid rgba(255,255,255,0.08);
+          padding: 20px 24px 28px;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+        .mob-menu a {
+          color: rgba(255,255,255,0.88);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1rem;
+          padding: 12px 0;
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+          transition: color 0.2s;
+        }
+        .mob-menu a:hover { color: var(--gold); }
+        .mob-menu .mob-cta {
+          margin-top: 16px;
+          background: var(--gold);
+          color: #fff;
+          border: none;
+          border-radius: 20px;
+          padding: 13px 24px;
+          font-size: 1rem;
+          font-weight: 700;
+          cursor: pointer;
+          text-align: center;
+          text-decoration: none;
+          transition: background 0.2s;
+        }
+        .mob-menu .mob-cta:hover { background: var(--gold-light); }
+
+        @media (max-width: 767px) {
+          .hdr-nav { display: none; }
+          .burger { display: flex; }
+        }
+      `}} />
+
+      <header className={`hdr${scrolled ? ' scrolled' : ''}`}>
+        <div className="container">
+          <div className="hdr-inner">
+            <Link href="/" className="hdr-logo">
+              <Image src="/logo.png" alt="РУХ Молодёжный центр" width={160} height={46} style={{ height: '46px', width: 'auto' }} priority />
+            </Link>
+
+            <nav className="hdr-nav">
+              {navLinks.map((l) => (
+                <Link key={l.label} href={l.href} className="hdr-link">{l.label}</Link>
+              ))}
+              <Link href="/#contact" className="hdr-cta">Записаться</Link>
+            </nav>
+
+            <button
+              className={`burger${menuOpen ? ' open' : ''}`}
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label="Меню"
+            >
+              <span className="burger-l" />
+              <span className="burger-l" />
+              <span className="burger-l" />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {menuOpen && (
+        <nav className="mob-menu">
+          {navLinks.map((l) => (
+            <Link key={l.label} href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</Link>
+          ))}
+          <Link href="/#contact" className="mob-cta" onClick={() => setMenuOpen(false)}>
+            Записаться
+          </Link>
+        </nav>
+      )}
+    </>
+  )
+}
