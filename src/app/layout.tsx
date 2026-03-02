@@ -28,6 +28,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
+      <head>
+        {/* Мгновенный прыжок к якорю без анимации при первой загрузке */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function(){
+            if(window.location.hash){
+              document.documentElement.style.scrollBehavior='auto';
+              window.addEventListener('load',function(){
+                setTimeout(function(){
+                  document.documentElement.style.scrollBehavior='';
+                },50);
+              });
+            }
+          })();
+        `}} />
+      </head>
       <body className={montserrat.variable}>
         <ScrollProgress />
         <CursorGlow />
