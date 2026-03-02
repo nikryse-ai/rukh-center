@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Montserrat } from 'next/font/google'
 import './globals.css'
 import './sections.css'
@@ -14,6 +14,11 @@ const montserrat = Montserrat({
   weight: ['400', '600', '700', '800'],
   variable: '--font-main',
 })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
 
 export const metadata: Metadata = {
   title: 'Молодёжный центр «Рух» — Казань',
