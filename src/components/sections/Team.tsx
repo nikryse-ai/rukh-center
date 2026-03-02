@@ -18,7 +18,7 @@ const avatarColors = [
 
 export default function Team() {
   return (
-    <section className="team-section">
+    <section className="team-section" id="team">
       <div className="container">
         <div className="team-title animate">
           <h2>Наша команда 👥</h2>

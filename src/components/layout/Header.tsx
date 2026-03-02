@@ -4,10 +4,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const navLinks = [
-  { label: 'Программы', href: '/#programs' },
-  { label: 'События', href: '#' },
-  { label: 'Отзывы', href: '/#reviews' },
-  { label: 'Доп. услуги', href: '#' },
+  { label: 'О нас',      href: '#about' },
+  { label: 'Программы',  href: '#programs' },
+  { label: 'Галерея',    href: '#gallery' },
+  { label: 'Отзывы',     href: '#reviews' },
+  { label: 'Команда',    href: '#team' },
+  { label: 'Контакты',   href: '#contact' },
 ]
 
 export default function Header() {
@@ -19,6 +21,15 @@ export default function Header() {
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const scrollTo = (href: string, close?: () => void) => (e: React.MouseEvent) => {
+    if (href.startsWith('#') && href.length > 1) {
+      e.preventDefault()
+      const el = document.getElementById(href.slice(1))
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+    close?.()
+  }
 
   return (
     <>
@@ -198,9 +209,9 @@ export default function Header() {
 
             <nav className="hdr-nav">
               {navLinks.map((l) => (
-                <Link key={l.label} href={l.href} className="hdr-link">{l.label}</Link>
+                <Link key={l.label} href={l.href} className="hdr-link" onClick={scrollTo(l.href)}>{l.label}</Link>
               ))}
-              <Link href="/#contact" className="hdr-cta">Записаться</Link>
+              <Link href="#contact" className="hdr-cta" onClick={scrollTo('#contact')}>Записаться</Link>
             </nav>
 
             <button
@@ -221,11 +232,11 @@ export default function Header() {
           <div className="mob-backdrop" onClick={() => setMenuOpen(false)} />
           <nav className="mob-menu">
             {navLinks.map((l) => (
-              <Link key={l.label} href={l.href} onClick={() => setMenuOpen(false)}>
+              <Link key={l.label} href={l.href} onClick={scrollTo(l.href, () => setMenuOpen(false))}>
                 {l.label}
               </Link>
             ))}
-            <Link href="/#contact" className="mob-cta" onClick={() => setMenuOpen(false)}>
+            <Link href="#contact" className="mob-cta" onClick={scrollTo('#contact', () => setMenuOpen(false))}>
               Записаться
             </Link>
           </nav>

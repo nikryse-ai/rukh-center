@@ -25,7 +25,7 @@ export default function Gallery() {
   }, [next])
 
   return (
-    <section className="gallery-section">
+    <section className="gallery-section" id="gallery">
       <div className="gallery-blob-1" />
       <div className="gallery-blob-2" />
       <div className="container">
