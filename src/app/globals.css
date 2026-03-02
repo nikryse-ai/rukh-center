@@ -29,10 +29,47 @@ body {
   color: var(--text-dark);
   background: #fff;
   line-height: 1.6;
-  overflow-x: clip;
+}
+
+main {
+  overflow-x: hidden;
 }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ── Header burger (mobile) ─────────────────────────────────── */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  gap: 5px;
+  padding: 10px;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1001;
+  -webkit-tap-highlight-color: transparent;
+}
+.burger-l {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--green-dark);
+  transition: transform 0.3s, opacity 0.3s;
+  border-radius: 2px;
+}
+.burger.open .burger-l:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open .burger-l:nth-child(2) { opacity: 0; }
+.burger.open .burger-l:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+@media (max-width: 767px) {
+  .hdr-nav { display: none !important; }
+  .burger  { display: flex !important; }
+}
 section { padding: 70px 0; }
 @media (min-width: 1200px) { section { padding: 90px 0; } }
 

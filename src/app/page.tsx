@@ -11,12 +11,9 @@ import About from '@/components/sections/About'
 import MapSection from '@/components/sections/MapSection'
 import Wave from '@/components/ui/Wave'
 import ParallaxSection from '@/components/sections/ParallaxSection'
-import ProgramsScroller from '@/components/ui/ProgramsScroller'
-
 export default function Home() {
   return (
     <main>
-      <ProgramsScroller />
       <Hero />
       <About />
       <Wave fill="#2D5140" bgColor="#fff" />
