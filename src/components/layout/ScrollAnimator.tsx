@@ -5,6 +5,21 @@ const SELECTOR = '.animate, .animate-pop, .animate-left, .animate-right, .animat
 
 export default function ScrollAnimator() {
   useEffect(() => {
+    // При загрузке с якорем (#programs, #reviews и т.д.) — мгновенный прыжок без анимации
+    if (window.location.hash) {
+      const id = window.location.hash.slice(1)
+      const el = document.getElementById(id)
+      if (el) {
+        document.documentElement.style.scrollBehavior = 'auto'
+        el.scrollIntoView()
+        requestAnimationFrame(() => {
+          document.documentElement.style.scrollBehavior = ''
+        })
+      }
+    }
+  }, [])
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
