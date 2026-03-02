@@ -15,7 +15,7 @@ const navLinks = [
 export default function Header() {
   const [scrolled,  setScrolled]  = useState(false)
   const [menuOpen,  setMenuOpen]  = useState(false)
-  const [isMobile,  setIsMobile]  = useState(false)
+  const [isMobile,  setIsMobile]  = useState(true)
 
   useEffect(() => {
     const onScroll  = () => setScrolled(window.scrollY > 10)
