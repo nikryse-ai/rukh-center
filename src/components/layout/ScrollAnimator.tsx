@@ -4,6 +4,12 @@ import { useEffect } from 'react'
 const SELECTOR = '.animate, .animate-pop, .animate-left, .animate-right, .animate-scale'
 
 export default function ScrollAnimator() {
+  // Мгновенно открываем страницу на разделе #programs
+  useEffect(() => {
+    const el = document.getElementById('programs')
+    if (el) el.scrollIntoView({ behavior: 'instant' as ScrollBehavior })
+  }, [])
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
