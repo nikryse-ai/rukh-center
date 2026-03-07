@@ -49,7 +49,7 @@ export default function Header() {
           height: 70px;
           display: flex;
           align-items: center;
-          transition: box-shadow 0.3s;
+          transition: box-shadow 0.3s, background 0.3s;
           border-bottom: 1px solid rgba(0,0,0,0.06);
         }
         .hdr.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.1); }

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -8,17 +9,17 @@ export const metadata: Metadata = {
 }
 
 const highlights = [
-  { emoji: '🤸', title: 'Спорт и движение', desc: 'Единоборства, гимнастика, подвижные игры и командные эстафеты каждый день.', bg: 'linear-gradient(135deg, #2D5140 0%, #3D6B55 100%)' },
-  { emoji: '💻', title: 'IT и робототехника', desc: 'Программирование, сборка роботов, игровые проекты на реальных платформах.', bg: 'linear-gradient(135deg, #1A3A5C 0%, #2A5A8C 100%)' },
-  { emoji: '🎨', title: 'Творческие мастер-классы', desc: 'Рисование, лепка, поделки, дизайн — занятия для тех, кто любит создавать.', bg: 'linear-gradient(135deg, #B8935A 0%, #D4AF7A 100%)' },
-  { emoji: '🧩', title: 'Квесты и головоломки', desc: 'Командные квесты, логические задачи и настольные игры с призами.', bg: 'linear-gradient(135deg, #1D6055 0%, #2D8070 100%)' },
-  { emoji: '🎬', title: 'Медиа и контент', desc: 'Создаём короткие видео, учимся монтажу и основам фотографии.', bg: 'linear-gradient(135deg, #4A2D6B 0%, #6A4D8B 100%)' },
-  { emoji: '🌿', title: 'Прогулки и экскурсии', desc: 'Выезды по интересным местам Казани и активный отдых на свежем воздухе.', bg: 'linear-gradient(135deg, #3D6B2D 0%, #5A8B3D 100%)' },
+  { emoji: '🤸', title: 'Спорт и движение',      desc: 'Единоборства, гимнастика, подвижные игры и командные эстафеты каждый день.', photo: '/KanProg-1.jpg' },
+  { emoji: '💻', title: 'IT и робототехника',     desc: 'Программирование, сборка роботов, игровые проекты на реальных платформах.',  photo: '/KanProg-2.jpg' },
+  { emoji: '🎨', title: 'Творческие мастер-классы', desc: 'Рисование, лепка, поделки, дизайн — занятия для тех, кто любит создавать.', photo: '/KanProg-3.jpg' },
+  { emoji: '🧩', title: 'Квесты и головоломки',   desc: 'Командные квесты, логические задачи и настольные игры с призами.',           photo: '/KanProg-4.jpg' },
+  { emoji: '🎬', title: 'Медиа и контент',         desc: 'Создаём короткие видео, учимся монтажу и основам фотографии.',               photo: '/KanProg-5.jpg' },
+  { emoji: '🌿', title: 'Прогулки и экскурсии',   desc: 'Выезды по интересным местам Казани и активный отдых на свежем воздухе.',     photo: '/KanProg-6.jpg' },
 ]
 
 const schedule = [
-  { time: '9:00 – 9:30',  activity: 'Сбор, зарядка, приветствие' },
-  { time: '9:30 – 11:00', activity: 'Блок 1 — спорт или активная игра' },
+  { time: '9:00 – 9:30',   activity: 'Сбор, зарядка, приветствие' },
+  { time: '9:30 – 11:00',  activity: 'Блок 1 — спорт или активная игра' },
   { time: '11:00 – 11:15', activity: 'Перекус' },
   { time: '11:15 – 13:00', activity: 'Блок 2 — IT / творчество / медиа' },
   { time: '13:00 – 14:00', activity: 'Обед (столовая внутри центра)' },
@@ -52,6 +53,13 @@ export default function HolidaysPage() {
       <section className="hol-hero">
         <div className="hol-hero-blob hol-hero-blob-1" />
         <div className="hol-hero-blob hol-hero-blob-2" />
+        <div className="hol-hero-blob hol-hero-blob-3" />
+        <div className="hol-hero-grid" />
+        <div className="hol-deco hol-deco-1">⚡</div>
+        <div className="hol-deco hol-deco-2">🎯</div>
+        <div className="hol-deco hol-deco-3">🏆</div>
+        <div className="hol-deco hol-deco-4">🤸</div>
+        <div className="hol-deco hol-deco-5">⭐</div>
         <div className="container">
           <div className="hol-hero-inner">
             <Link href="/#programs" className="hol-back-link">
@@ -80,6 +88,11 @@ export default function HolidaysPage() {
             </div>
           </div>
         </div>
+        <div className="hol-hero-wave">
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,20 1440,40 L1440,80 L0,80 Z" fill="#fff" />
+          </svg>
+        </div>
       </section>
 
       {/* ── HIGHLIGHTS ── */}
@@ -98,14 +111,18 @@ export default function HolidaysPage() {
 
           <div className="hol-highlights-grid">
             {highlights.map((h) => (
-              <div
-                className="hol-highlight-card"
-                key={h.title}
-                style={{ background: h.bg }}
-              >
-                <span className="hol-highlight-emoji">{h.emoji}</span>
-                <div className="hol-highlight-title">{h.title}</div>
-                <div className="hol-highlight-desc">{h.desc}</div>
+              <div className="hol-highlight-card" key={h.title}>
+                <Image src={h.photo} alt={h.title} fill sizes="(max-width: 767px) 100vw, 33vw" style={{ objectFit: 'cover' }} />
+                <div className="hol-hl-overlay" />
+                <div className="hol-hl-always">
+                  <span className="hol-highlight-emoji">{h.emoji}</span>
+                  <div className="hol-highlight-title">{h.title}</div>
+                </div>
+                <div className="hol-hl-hover">
+                  <span className="hol-hl-hover-emoji">{h.emoji}</span>
+                  <div className="hol-hl-hover-title">{h.title}</div>
+                  <div className="hol-highlight-desc">{h.desc}</div>
+                </div>
               </div>
             ))}
           </div>
@@ -117,7 +134,7 @@ export default function HolidaysPage() {
         <div className="container">
           <div className="hol-schedule-wrap">
             <div>
-              <div className="hol-section-tag" style={{ display: 'inline-flex', marginBottom: '20px', background: 'var(--green-bg)', color: 'var(--green-dark)', border: '1.5px solid rgba(45,81,64,0.15)' }}>🕐 Расписание дня</div>
+              <div className="hol-section-tag hol-section-tag--light">🕐 Расписание дня</div>
               <h2 className="hol-schedule-side-title">Как проходит один день в «Рух»?</h2>
               <p className="hol-schedule-side-desc">
                 День тщательно продуман: активные блоки чередуются с творческими и умственными,
@@ -130,8 +147,8 @@ export default function HolidaysPage() {
             </div>
 
             <div className="hol-timeline">
-              {schedule.map((item) => (
-                <div className="hol-timeline-item" key={item.time}>
+              {schedule.map((item, i) => (
+                <div className="hol-timeline-item" key={item.time} style={{ '--delay': `${i * 0.06}s` } as React.CSSProperties}>
                   <span className="hol-timeline-time">{item.time}</span>
                   <span className="hol-timeline-act">{item.activity}</span>
                 </div>
@@ -145,14 +162,15 @@ export default function HolidaysPage() {
       <section className="hol-faq">
         <div className="container">
           <div className="hol-section-header">
-            <div className="hol-section-tag" style={{ background: 'var(--green-bg)', color: 'var(--green-dark)', border: '1.5px solid rgba(45,81,64,0.15)' }}>🤔 Частые вопросы</div>
-            <h2 className="hol-section-h2" style={{ color: 'var(--text-dark)' }}>
+            <div className="hol-section-tag hol-section-tag--light">🤔 Частые вопросы</div>
+            <h2 className="hol-section-h2 hol-section-h2--dark">
               <span>Всё, что важно знать</span>
             </h2>
           </div>
           <div className="hol-faq-grid">
-            {faqs.map((f) => (
-              <div className="hol-faq-card" key={f.q}>
+            {faqs.map((f, i) => (
+              <div className="hol-faq-card" key={f.q} style={{ '--delay': `${i * 0.1}s` } as React.CSSProperties}>
+                <div className="hol-faq-num">{i + 1}</div>
                 <div className="hol-faq-q">{f.q}</div>
                 <div className="hol-faq-a">{f.a}</div>
               </div>
@@ -164,6 +182,9 @@ export default function HolidaysPage() {
       {/* ── CTA ── */}
       <section className="hol-cta">
         <div className="hol-cta-blob hol-cta-blob-1" />
+        <div className="hol-cta-blob hol-cta-blob-2" />
+        <div className="hol-deco hol-cta-deco-1">🚀</div>
+        <div className="hol-deco hol-cta-deco-2">⭐</div>
         <div className="container">
           <div className="hol-cta-inner">
             <div>

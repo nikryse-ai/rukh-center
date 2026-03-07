@@ -15,10 +15,9 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <About />
-      <Wave fill="#2D5140" bgColor="#fff" />
       <ParallaxSection />
-      <Banner />
+      <Wave fill="#2D5140" bgColor="#1A2E24" />
+      <About />
       <Programs />
       <Banner
         text="Не знаешь с чего начать? Приходи на <strong>бесплатную консультацию</strong> и мы подберём программу!"

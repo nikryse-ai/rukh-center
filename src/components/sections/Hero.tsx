@@ -1,13 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-const stats = [
-  { value: '2022', label: 'год основания', emoji: '📅', bg: '#B8935A', color: '#fff' },
-  { value: '9',    label: 'направлений',   emoji: '🎯', bg: '#3D6B55', color: '#fff' },
-  { value: 'Казань', label: 'ул. Павлюхина', emoji: '📍', bg: '#F5ECD9', color: '#2D5140' },
-  { value: 'Пн–Сб', label: '8:00 – 22:00',  emoji: '🕐', bg: '#EAF2EC', color: '#2D5140' },
-]
-
 export default function Hero() {
   return (
     <section className="hero-section">
@@ -33,7 +26,7 @@ export default function Hero() {
                 <span className="name">«Рух» 🚀</span>
               </h1>
               <p className="hero-desc">
-                Интересные занятия для детей, подростков, взрослых и семей. Расположены в сердце ЖК «Возрождение» Приволжского района Казани.
+                Многопрофильные занятия для детей, подростков, взрослых и семей. Расположены в сердце ЖК «Возрождение» Приволжского района города Казани.
               </p>
               <div className="hero-btns">
                 <Link href="/#programs" className="btn-green">Выбрать направление</Link>
@@ -41,59 +34,17 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Правая колонка — наклонный коллаж 3 фото */}
+            {/* Правая колонка — одно большое фото */}
             <div className="hero-gallery animate-right visible">
-
-              {/* Фото 1 — большое, верхний левый */}
               <div className="hero-photo hero-photo-1">
                 <Image
                   src="/ruh-1.jpg"
                   alt="Молодёжный центр Рух"
-                  width={600} height={290}
+                  width={600} height={460}
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                 />
               </div>
-
-              {/* Фото 2 — меньше, правый верх */}
-              <div className="hero-photo hero-photo-2">
-                <Image
-                  src="/ruh-2.jpg"
-                  alt="Занятия в центре Рух"
-                  width={400} height={215}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                />
-              </div>
-
-              {/* Фото 3 — нижнее, поверх обоих */}
-              <div className="hero-photo hero-photo-3">
-                <Image
-                  src="/ruh-3.jpg"
-                  alt="Активности в центре Рух"
-                  width={600} height={205}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                />
-              </div>
-
-              {/* Бейдж поверх коллажа */}
-              <div className="hero-gal-badge">
-                <span>2022</span>год основания
-              </div>
-
             </div>
-          </div>
-
-          <div className="hero-stats">
-            {stats.map((s) => (
-              <div
-                key={s.label}
-                className="hero-stat-card"
-                style={{ background: s.bg, color: s.color }}
-              >
-                <span className="hero-stat-emoji">{s.emoji}</span>
-                <div className="hero-stat-value">{s.value}</div>
-                <div className="hero-stat-label">{s.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

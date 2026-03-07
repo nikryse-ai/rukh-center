@@ -1,7 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 
-const SELECTOR = '.animate, .animate-pop, .animate-left, .animate-right, .animate-scale'
+const SELECTOR = '.animate, .animate-pop, .animate-left, .animate-right, .animate-scale, .animate-zoom'
 
 export default function ScrollAnimator() {
   useEffect(() => {

@@ -1,20 +1,26 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react'
+import Image from 'next/image'
 
 const slides = [
-  { color: '#3D6B55', label: '[Фото 1]' },
-  { color: '#2D5140', label: '[Фото 2]' },
-  { color: '#4A7A63', label: '[Фото 3]' },
-  { color: '#B8935A', label: '[Фото 4]' },
-  { color: '#2D5140', label: '[Фото 5]' },
-  { color: '#3D6B55', label: '[Фото 6]' },
-  { color: '#4A7A63', label: '[Фото 7]' },
-  { color: '#D4AF7A', label: '[Фото 8]' },
+  '/Moments-1.jpg',
+  '/Moments-2.jpg',
+  '/Moments-3.jpg',
+  '/Moments-4.jpg',
+  '/Moments-5.jpg',
+  '/Moments-6.jpg',
+  '/Moments-7.jpg',
+  '/Moments-8.jpg',
+  '/Moments-9.jpg',
+  '/Moments-10.jpg',
+  '/Moments-11.jpg',
+  '/Moments-12.jpg',
 ]
 
 export default function Gallery() {
   const [current, setCurrent] = useState(0)
-  const total = slides.length
+  const total = slides.length - 2
+
 
   const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total])
   const prev = () => setCurrent((c) => (c - 1 + total) % total)
@@ -38,10 +44,10 @@ export default function Gallery() {
         <div className="gallery-slider">
           <button className="gallery-arrow gallery-arrow-left" onClick={prev}>‹</button>
           <div className="gallery-track-wrap">
-            <div className="gallery-track" style={{ transform: `translateX(-${current * 100}%)` }}>
-              {slides.map((s, i) => (
-                <div key={i} className="gallery-slide" style={{ background: s.color }}>
-                  {s.label}
+            <div className="gallery-track" style={{ transform: `translateX(-${current * (100 / 3)}%)` }}>
+              {slides.map((src, i) => (
+                <div key={i} className="gallery-slide">
+                  <Image src={src} alt={`Момент ${i + 1}`} fill sizes="33vw" style={{ objectFit: 'cover' }} priority={i < 3} />
                 </div>
               ))}
             </div>
@@ -50,7 +56,7 @@ export default function Gallery() {
         </div>
 
         <div className="gallery-dots">
-          {slides.map((_, i) => (
+          {Array.from({ length: total }).map((_, i) => (
             <button
               key={i}
               className={`gallery-dot ${i === current ? 'active' : ''}`}

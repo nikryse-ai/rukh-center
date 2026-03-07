@@ -61,7 +61,7 @@ export default function ParallaxSection() {
         <div className="prlx-stats">
           {[
             { emoji: '🎁', num: 'Бесплатное', label: 'вводное занятие' },
-            { emoji: '👨‍🏫', num: '100+',      label: 'участников уже с нами' },
+            { emoji: '🕐', num: 'Пн – Вс',   label: '8:00 – 22:00' },
             { emoji: '🏋️', num: 'Современные', label: 'залы и кабинеты' },
             { emoji: '🏠', num: 'В сердце',    label: 'ЖК «Возрождение»' },
           ].map((s) => (
