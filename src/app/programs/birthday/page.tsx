@@ -274,7 +274,7 @@ export default function BirthdayPage() {
             <div className="bd-cta-right">
               <a href="https://t.me/BBestBirthdayBot" target="_blank" rel="noopener noreferrer" className="btn-gold">🎈 Забронировать через Telegram</a>
               <a href="tel:+79274441844" className="bd-cta-phone">+7 (927) 444-18-44</a>
-              <span className="bd-cta-hint">Пн–Сб · 8:00 – 22:00</span>
+              <span className="bd-cta-hint">Пн–Вс · 8:00 – 22:00</span>
             </div>
           </div>
         </div>

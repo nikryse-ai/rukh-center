@@ -29,7 +29,7 @@ export default function MapSection() {
           <div className="map-footer-bar-inner">
             <div className="map-footer-info">
               <span className="map-footer-item">📍 Казань, ул. Павлюхина, 108Бк2</span>
-              <span className="map-footer-item">🕐 Пн–Сб: 8:00 – 22:00</span>
+              <span className="map-footer-item">🕐 Пн–Вс: 8:00 – 22:00</span>
               <span className="map-footer-item">📞 +7 (927) 444-18-44</span>
             </div>
             <a

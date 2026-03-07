@@ -164,7 +164,7 @@ export default function CoworkingPage() {
             </div>
             <div className="cw-cta-right">
               <a href="tel:+79274441844" className="cw-cta-phone">+7 (927) 444-18-44</a>
-              <span className="cw-cta-hint">Пн–Сб · 8:00 – 22:00</span>
+              <span className="cw-cta-hint">Пн–Вс · 8:00 – 22:00</span>
               <Link href="/#contact" className="cw-btn-main">Оставить заявку</Link>
             </div>
           </div>

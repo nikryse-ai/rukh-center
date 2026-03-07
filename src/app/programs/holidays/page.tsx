@@ -196,7 +196,7 @@ export default function HolidaysPage() {
             </div>
             <div className="hol-cta-right">
               <a href="tel:+79274441844" className="hol-cta-phone">+7 (927) 444-18-44</a>
-              <span className="hol-cta-hint">Пн–Сб · 8:00 – 22:00</span>
+              <span className="hol-cta-hint">Пн–Вс · 8:00 – 22:00</span>
               <Link href="/#contact" className="btn-gold">Оставить заявку</Link>
             </div>
           </div>

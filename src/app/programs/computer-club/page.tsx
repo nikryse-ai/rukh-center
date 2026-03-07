@@ -44,7 +44,7 @@ export default function ComputerClubPage() {
             </p>
             <div className="cc-badges">
               <span className="cc-badge">👾 От 10 лет</span>
-              <span className="cc-badge">🕐 Пн–Сб 8:00–22:00</span>
+              <span className="cc-badge">🕐 Пн–Вс 8:00–22:00</span>
               <span className="cc-badge">💰 от 150 ₽/час</span>
               <span className="cc-badge">🆓 1-й час бесплатно</span>
             </div>
@@ -108,7 +108,7 @@ export default function ComputerClubPage() {
             </div>
             <div className="cc-cta-right">
               <a href="tel:+79274441844" className="cc-cta-phone">+7 (927) 444-18-44</a>
-              <span className="cc-cta-hint">Пн–Сб · 8:00 – 22:00</span>
+              <span className="cc-cta-hint">Пн–Вс · 8:00 – 22:00</span>
               <Link href="/#contact" className="cc-btn-primary">Оставить заявку</Link>
             </div>
           </div>

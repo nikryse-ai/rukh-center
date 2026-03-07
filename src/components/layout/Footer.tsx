@@ -46,7 +46,7 @@ export default function Footer() {
                 📍 Казань, ул. Павлюхина, 108Бк2<br />
                 <span style={{ fontSize: '0.8rem', opacity: 0.7 }}>Напротив ТЦ KazanMall, ост. «Ипподромная улица»</span>
               </div>
-              <div className="footer-contact-row">🕐 Пн–Сб: 8:00 – 22:00</div>
+              <div className="footer-contact-row">🕐 Пн–Вс: 8:00 – 22:00</div>
               <div className="footer-director">
                 Директор Лейсан<br />
                 <a href="tel:+79872297545">+7 (987) 229-75-45</a>

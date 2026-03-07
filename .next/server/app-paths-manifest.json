@@ -1,8 +1,7 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
   "/programs/ai-learning/page": "app/programs/ai-learning/page.js",
   "/programs/holidays/page": "app/programs/holidays/page.js",
-  "/programs/phygital/page": "app/programs/phygital/page.js",
-  "/programs/coworking/page": "app/programs/coworking/page.js"
+  "/programs/coworking/page": "app/programs/coworking/page.js",
+  "/programs/phygital/page": "app/programs/phygital/page.js"
 }

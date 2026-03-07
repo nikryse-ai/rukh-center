@@ -53,7 +53,7 @@ export default function ContactForm() {
               </div>
               <div className="contact-detail">
                 <span className="contact-detail-icon">🕐</span>
-                <div className="contact-detail-text">Пн–Сб: 8:00 – 22:00</div>
+                <div className="contact-detail-text">Пн–Вс: 8:00 – 22:00</div>
               </div>
             </div>
             <div className="contact-socials">
