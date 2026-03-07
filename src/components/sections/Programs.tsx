@@ -54,7 +54,7 @@ export default function Programs() {
               </div>
               <div className="prog-card-body">
                 <div className="prog-card-icon">
-                  <Image src={p.logo} alt="" width={56} height={56} style={{ objectFit: 'contain' }} />
+                  <Image src={p.logo} alt="" width={68} height={68} style={{ objectFit: 'contain' }} />
                 </div>
                 <div className="prog-card-title">{p.title}</div>
                 <div className="prog-card-desc">{p.short}</div>
