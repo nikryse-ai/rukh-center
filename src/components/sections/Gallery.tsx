@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useCallback } from 'react'
+import { useRef } from 'react'
 import Image from 'next/image'
 
 const slides = [
@@ -18,17 +18,11 @@ const slides = [
 ]
 
 export default function Gallery() {
-  const [current, setCurrent] = useState(0)
-  const total = slides.length - 2
+  const stripRef = useRef<HTMLDivElement>(null)
 
-
-  const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total])
-  const prev = () => setCurrent((c) => (c - 1 + total) % total)
-
-  useEffect(() => {
-    const t = setInterval(next, 4000)
-    return () => clearInterval(t)
-  }, [next])
+  const scroll = (dir: 'left' | 'right') => {
+    stripRef.current?.scrollBy({ left: dir === 'right' ? 580 : -580, behavior: 'smooth' })
+  }
 
   return (
     <section className="gallery-section" id="gallery">
@@ -40,30 +34,18 @@ export default function Gallery() {
           <div className="gallery-title-line" />
           <p>Каждый день в РУХ — новые открытия, проекты и настоящая дружба</p>
         </div>
+      </div>
 
-        <div className="gallery-slider">
-          <button className="gallery-arrow gallery-arrow-left" onClick={prev}>‹</button>
-          <div className="gallery-track-wrap">
-            <div className="gallery-track" style={{ transform: `translateX(-${current * (100 / 3)}%)` }}>
-              {slides.map((src, i) => (
-                <div key={i} className="gallery-slide">
-                  <Image src={src} alt={`Момент ${i + 1}`} fill sizes="33vw" style={{ objectFit: 'cover' }} priority={i < 3} />
-                </div>
-              ))}
+      <div className="gallery-strip-wrap">
+        <button className="gallery-arrow gallery-arrow-left" onClick={() => scroll('left')}>‹</button>
+        <div className="gallery-strip" ref={stripRef}>
+          {slides.map((src, i) => (
+            <div key={i} className="gallery-strip-item">
+              <Image src={src} alt={`Момент ${i + 1}`} fill sizes="420px" style={{ objectFit: 'cover' }} priority={i < 4} />
             </div>
-          </div>
-          <button className="gallery-arrow gallery-arrow-right" onClick={next}>›</button>
-        </div>
-
-        <div className="gallery-dots">
-          {Array.from({ length: total }).map((_, i) => (
-            <button
-              key={i}
-              className={`gallery-dot ${i === current ? 'active' : ''}`}
-              onClick={() => setCurrent(i)}
-            />
           ))}
         </div>
+        <button className="gallery-arrow gallery-arrow-right" onClick={() => scroll('right')}>›</button>
       </div>
     </section>
   )
