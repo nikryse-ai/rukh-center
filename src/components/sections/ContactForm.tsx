@@ -5,9 +5,19 @@ import Link from 'next/link'
 export default function ContactForm() {
   const [form, setForm] = useState({ name: '', phone: '', telegram: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setLoading(true)
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+    } catch {}
+    setLoading(false)
     setSubmitted(true)
   }
 
@@ -71,8 +81,8 @@ export default function ContactForm() {
                 <input className="contact-input" type="text" placeholder="Ваше имя" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
                 <input className="contact-input" type="tel" placeholder="Телефон" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} required />
                 <input className="contact-input" type="text" placeholder="Telegram (необязательно)" value={form.telegram} onChange={(e) => setForm({ ...form, telegram: e.target.value })} />
-                <button type="submit" className="btn-green" style={{ width: '100%', padding: '16px', fontSize: '1.05rem', borderRadius: '14px' }}>
-                  Записаться на бесплатное занятие
+                <button type="submit" className="btn-green" disabled={loading} style={{ width: '100%', padding: '16px', fontSize: '1.05rem', borderRadius: '14px', opacity: loading ? 0.7 : 1 }}>
+                  {loading ? 'Отправляем...' : 'Записаться на бесплатное занятие'}
                 </button>
                 <p className="contact-consent">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
               </form>
