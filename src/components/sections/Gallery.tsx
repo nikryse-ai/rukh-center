@@ -15,6 +15,9 @@ const slides = [
   '/Moments-10.jpg',
   '/Moments-11.jpg',
   '/Moments-12.jpg',
+  '/Moments-13.jpg',
+  '/Moments-14.jpg',
+  '/Moments-15.jpg',
 ]
 
 export default function Gallery() {
