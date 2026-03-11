@@ -4,12 +4,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const navLinks = [
-  { label: 'О нас',     href: '#about' },
-  { label: 'Программы', href: '#programs' },
-  { label: 'Галерея',   href: '#gallery' },
-  { label: 'Отзывы',    href: '#reviews' },
-  { label: 'Команда',   href: '#team' },
-  { label: 'Контакты',  href: '#contact' },
+  { label: 'О нас',          href: '#hero' },
+  { label: 'Яркие моменты',  href: '#gallery' },
+  { label: 'Наши программы', href: '#programs' },
+  { label: 'Отзывы',         href: '#reviews' },
+  { label: 'Наша команда',   href: '#team' },
+  { label: 'Контакты',       href: '#contact' },
 ]
 
 export default function Header() {

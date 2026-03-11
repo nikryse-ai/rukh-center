@@ -33,7 +33,7 @@ const cards = [
 
 export default function Objections() {
   return (
-    <section className="obj-section">
+    <section className="obj-section" id="about">
       <div className="obj-blob-1" />
       <div className="obj-blob-2" />
       <div className="obj-spark obj-spark-1">💭</div>

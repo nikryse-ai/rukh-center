@@ -11,7 +11,8 @@ export default function Wave({ fill, bgColor = 'transparent', flip = false }: Wa
         lineHeight: 0,
         background: bgColor,
         transform: flip ? 'scaleX(-1)' : 'none',
-        marginBottom: -1,
+        marginTop: -2,
+        marginBottom: -2,
         overflow: 'hidden',
       }}
     >
@@ -24,6 +25,8 @@ export default function Wave({ fill, bgColor = 'transparent', flip = false }: Wa
         <path
           d="M0,45 C240,90 480,0 720,45 C960,90 1200,10 1440,45 L1440,90 L0,90 Z"
           fill={fill}
+          stroke={fill}
+          strokeWidth="2"
         />
       </svg>
     </div>

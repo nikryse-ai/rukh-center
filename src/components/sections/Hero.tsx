@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function Hero() {
   return (
-    <section className="hero-section">
+    <section className="hero-section" id="hero">
         <div className="hero-ring hero-ring-1" />
         <div className="hero-ring hero-ring-2" />
         <div className="hero-ring hero-ring-3" />
@@ -23,7 +23,7 @@ export default function Hero() {
               <span className="hero-tag">Многопрофильный молодёжный центр</span>
               <h1 className="hero-h1">
                 Молодёжный центр<br />
-                <span className="name">«Рух» 🚀</span>
+                <span className="name">«Рух»</span>
               </h1>
               <p className="hero-desc">
                 Многопрофильные занятия для детей, подростков, взрослых и семей. Расположены в сердце ЖК «Возрождение» Приволжского района города Казани.
