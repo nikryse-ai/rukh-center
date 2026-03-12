@@ -67,6 +67,7 @@ export default function ContactForm() {
               </div>
             </div>
             <div className="contact-socials">
+              <Link href="https://vk.ru/mcruh" target="_blank" rel="noopener noreferrer" className="contact-social-btn contact-social-vk-main">МЦ РУХ ВКонтакте</Link>
               <Link href="https://vk.com/ruhclubkazan" target="_blank" rel="noopener noreferrer" className="contact-social-btn contact-social-vk">ВКонтакте</Link>
               <Link href="https://t.me/ruhclub" target="_blank" rel="noopener noreferrer" className="contact-social-btn contact-social-tg">Telegram</Link>
             </div>

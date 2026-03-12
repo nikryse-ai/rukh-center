@@ -51,7 +51,7 @@ export default function Programs() {
           {programs.map((p, i) => (
             <div key={p.title} className={`prog-card animate delay-${(i % 3) + 1}`}>
               <div className="prog-card-photo">
-                <Image src={p.photo} alt={p.title} fill sizes="(max-width: 767px) 100vw, 33vw" style={{ objectFit: 'cover' }} priority={i < 3} />
+                <Image src={p.photo} alt={p.title} fill sizes="(max-width: 767px) 100vw, 33vw" style={{ objectFit: 'cover' }} priority={i < 6} />
               </div>
               <div className="prog-card-overlay" />
               <div className="prog-card-content">

@@ -16,7 +16,8 @@ export default function Footer() {
               Многопрофильный молодёжный центр в сердце ЖК «Возрождение», Приволжский район Казани. Интересные занятия для детей, подростков, взрослых и семей.
             </p>
             <div className="footer-socials">
-              <Link href="https://vk.com/ruhclubkazan" target="_blank" rel="noopener noreferrer" className="footer-social" title="ВКонтакте">ВК</Link>
+              <Link href="https://vk.ru/mcruh" target="_blank" rel="noopener noreferrer" className="footer-social footer-social-vk-main" title="Группа МЦ РУХ ВКонтакте">МЦ РУХ</Link>
+              <Link href="https://vk.com/ruhclubkazan" target="_blank" rel="noopener noreferrer" className="footer-social" title="ВКонтакте — Клуб единоборств">ВК</Link>
               <Link href="https://t.me/ruhclub" target="_blank" rel="noopener noreferrer" className="footer-social" title="Telegram">TG</Link>
             </div>
           </div>
