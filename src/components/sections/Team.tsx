@@ -1,19 +1,37 @@
-const team = [
-  { name: 'Иванова Анна', role: 'Лидерство и личностный рост', initials: 'ИА', emoji: '🌟' },
-  { name: 'Петров Дмитрий', role: 'Предпринимательство и проекты', initials: 'ПД', emoji: '🚀' },
-  { name: 'Сидорова Камила', role: 'Волонтёрство и социальные проекты', initials: 'СК', emoji: '❤️' },
-  { name: 'Козлов Никита', role: 'IT и Digital, веб-разработка', initials: 'КН', emoji: '💻' },
-  { name: 'Ахметова Гузель', role: 'Творчество, медиа, дизайн', initials: 'АГ', emoji: '🎨' },
-  { name: 'Фёдоров Артём', role: 'Спорт и здоровье', initials: 'ФА', emoji: '⚡' },
-]
+import Image from 'next/image'
 
-const avatarColors = [
-  'linear-gradient(135deg, #B8935A 0%, #D4AF7A 100%)',
-  'linear-gradient(135deg, #2D5140 0%, #4A7A63 100%)',
-  'linear-gradient(135deg, #D4AF7A 0%, #A07840 100%)',
-  'linear-gradient(135deg, #3D6B55 0%, #6B9E80 100%)',
-  'linear-gradient(135deg, #4A7A63 0%, #3D6B55 100%)',
-  'linear-gradient(135deg, #A07840 0%, #C4955E 100%)',
+interface Member {
+  name: string
+  role: string
+  desc: string
+  photo: string
+}
+
+const team: Member[] = [
+  {
+    name: 'Мифтахов Марсель Ринадович',
+    role: 'Основатель клуба «Рух»',
+    desc: 'Секретарь Олимпийского совета РТ. Председатель комитета МФ тхэквондо ГТФ. Член Общественного совета Минспорта РТ. Спикер Российского международного олимпийского университета. Отличник физической культуры и спорта РТ.',
+    photo: '/Team-3.jpg',
+  },
+  {
+    name: 'Валеев Али Мухаметович',
+    role: 'Инструктор по кроссфиту и ниндзя-спорту',
+    desc: 'Сертифицированный фитнес-инструктор, тренер по кроссфиту и гонкам с препятствиями. Финишер IRONMAN, ультрамарафонец (100 км). Участник «Суперниндзя» 3 и 4 сезонов. Неоднократный победитель соревнований. Гвардии рядовой ВДВ.',
+    photo: '/Team-1.jpg',
+  },
+  {
+    name: 'Шакирзянов Дмитрий Сергеевич',
+    role: 'Бизнес-тренер · Трекер',
+    desc: 'Сертифицированный бизнес-наставник Сколково. Более 50 федеральных и республиканских проектов. Специализация: тренинги для топ-менеджмента, командообразование и внедрение ТРИЗ.',
+    photo: '/Team-2.jpg',
+  },
+  {
+    name: 'Абдуллин Ранис',
+    role: 'Тьютор · ИИ-наставник',
+    desc: 'Тьютор, организатор фиджитал мероприятий и ИИ-наставник центра «Рух».',
+    photo: '/Team-4.jpg',
+  },
 ]
 
 export default function Team() {
@@ -25,17 +43,34 @@ export default function Team() {
           <div className="team-title-line" />
           <p>Наставники, которые любят своё дело и умеют вдохновлять молодёжь</p>
         </div>
-        <div className="team-grid">
+        <div className="team-photo-grid">
           {team.map((m, i) => (
-            <div key={m.name} className={`team-card animate delay-${i + 1}`}>
-              <div className="team-avatar-wrap">
-                <div className="team-avatar" style={{ background: avatarColors[i] }}>{m.initials}</div>
-                <span className="team-avatar-emoji">{m.emoji}</span>
+            <div key={m.name} className={`prog-card animate delay-${(i % 4) + 1}`} style={{ height: '520px' }}>
+              <div className="prog-card-photo">
+                <Image src={m.photo} alt={m.name} fill sizes="(max-width: 767px) 100vw, 25vw" style={{ objectFit: 'cover', objectPosition: 'center top' }} />
               </div>
-              <div className="team-name">{m.name}</div>
-              <div className="team-role">{m.role}</div>
+              <div className="prog-card-overlay" />
+              <div className="prog-card-content">
+                <div className="team-card-role">{m.role}</div>
+                <div className="prog-card-reveal">
+                  <div className="team-card-name">{m.name}</div>
+                  <div className="prog-card-desc">{m.desc}</div>
+                </div>
+              </div>
             </div>
           ))}
+          <div className="prog-card animate delay-1 team-card-empty" style={{ height: '520px' }}>
+            <div className="team-card-empty-inner">
+              <span>+</span>
+              <p>Скоро</p>
+            </div>
+          </div>
+          <div className="prog-card animate delay-2 team-card-empty" style={{ height: '520px' }}>
+            <div className="team-card-empty-inner">
+              <span>+</span>
+              <p>Скоро</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

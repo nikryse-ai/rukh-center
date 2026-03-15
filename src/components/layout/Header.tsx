@@ -9,6 +9,7 @@ const navLinks = [
   { label: 'Наши программы', href: '#programs' },
   { label: 'Отзывы',         href: '#reviews' },
   { label: 'Наша команда',   href: '#team' },
+  { label: 'Новости',        href: '#news' },
   { label: 'Контакты',       href: '#contact' },
 ]
 
@@ -69,13 +70,13 @@ export default function Header() {
         .hdr-nav {
           display: flex;
           align-items: center;
-          gap: 20px;
+          gap: 14px;
         }
         .hdr-link {
           color: var(--green-dark);
           text-decoration: none;
           font-weight: 600;
-          font-size: 0.88rem;
+          font-size: 0.82rem;
           position: relative;
           padding-bottom: 3px;
           transition: color 0.2s;
@@ -97,8 +98,8 @@ export default function Header() {
           color: #fff;
           border: none;
           border-radius: 20px;
-          padding: 9px 20px;
-          font-size: 0.88rem;
+          padding: 8px 16px;
+          font-size: 0.82rem;
           font-weight: 700;
           cursor: pointer;
           font-family: var(--font-main);
